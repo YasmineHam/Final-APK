@@ -243,15 +243,15 @@ class _CustomLoginFormState1 extends State<CustomLoginForm1> {
                           onPressed: () async {
                             if (_formKey.currentState.validate()) {
                               await signIn(email);
-                              FirebaseAuth.instance.currentUser().then((firebaseUser){
-                                if(firebaseUser != null) {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(builder: (context) =>
-                                        PagePrincipale(per)),
-                                  );
-                                }
-                              });
+//                              FirebaseAuth.instance.currentUser().then((firebaseUser){
+//                                if(firebaseUser != null) {
+//                                  Navigator.push(
+//                                    context,
+//                                    MaterialPageRoute(builder: (context) =>
+//                                        PagePrincipale(per)),
+//                                  );
+//                                }
+//                              });
                               //Scaffold.of().showSnackBar(this.snackBar);
                             }
                           },
@@ -340,7 +340,7 @@ class _CustomLoginFormState1 extends State<CustomLoginForm1> {
     //ajout de l'utilisateur à la base de données
     userName = userDetails.displayName;
     email = userDetails.email;
-    crudObj.addUser(userName, 'compte', {
+    crudObj.addUser(email, 'compte', {
       'Username': userName,
       'Email': email,
     });
@@ -354,15 +354,12 @@ class _CustomLoginFormState1 extends State<CustomLoginForm1> {
   signIn(String e) async {
     await FirebaseAuth.instance
         .signInWithEmailAndPassword(email: email, password: password)
-        .then((signedInUser) {
+        .then((signedInUser) async{
       print('connecté');
       ShowToast("Connexion avec succès"); //affichage d'une icône
 
       //Ajout de l'utilisateur à la base de données
-    }).catchError((e) {
-      ShowToast('Veuillez réessayer');
-      print(e);
-    });
+
     per.Listegroupe= await crudObj.getListGrp(email);
 
 
@@ -465,6 +462,15 @@ class _CustomLoginFormState1 extends State<CustomLoginForm1> {
           });
           return per;
         });
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) =>
+            PagePrincipale(per)),
+      );
+        }).catchError((e) {
+      ShowToast('Veuillez réessayer');
+      print(e);
+    });
     //* return per;
     print('---------------**---------------------------------------------');
 

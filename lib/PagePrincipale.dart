@@ -234,6 +234,17 @@ class _PagePrincipaleState extends State<PagePrincipale> with SingleTickerProvid
 ////        initializationSettingsAndroid, null);
 ////    flutterLocalNotificationsPlugin.initialize(initializationSettings,
 ////        onSelectNotification: selectNotification);
+    super.initState();
+    messagesList= List<Messagee>();
+    // _getToken();
+    _configureFirebaseListeners();
+    print('coucouuuuuuu');
+    if (widget.personne.groupeActif ==null)
+    {
+      MapPage.select=widget.personne;
+      MapPage.personne=widget.personne;
+      print(widget.personne.listeGroupes.length);
+    }
     _animationController =
     AnimationController(vsync: this, duration: Duration(milliseconds: 500))
       ..addListener(() {
@@ -263,17 +274,7 @@ class _PagePrincipaleState extends State<PagePrincipale> with SingleTickerProvid
         curve: _curve,
       ),
     ));
-    super.initState();
-    messagesList= List<Messagee>();
-    // _getToken();
-    _configureFirebaseListeners();
-    print('coucouuuuuuu');
-    if (widget.personne.groupeActif ==null)
-    {
-      MapPage.select=widget.personne;
-      MapPage.personne=widget.personne;
-      print(widget.personne.listeGroupes.length);
-    }
+
 
     _visibleDialog = PagePrincipale.vis;
     print(PagePrincipale.vis);
@@ -782,7 +783,7 @@ class _PagePrincipaleState extends State<PagePrincipale> with SingleTickerProvid
             child: StreamBuilder(
                 stream: Firestore.instance
                     .collection('users')
-                    .document(widget.personne.compte.numTel)
+                    .document(widget.personne.compte.email)
                     .collection("compte")
                     .document("compte")
                     .snapshots(),
@@ -1291,7 +1292,6 @@ class _PagePrincipaleState extends State<PagePrincipale> with SingleTickerProvid
     isOpened = !isOpened;
   }
 
-  @override
   /* void initState() {
     super.initState();
     if (widget.personne.groupeActif ==null)

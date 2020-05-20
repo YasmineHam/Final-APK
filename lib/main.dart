@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import './accueil/Accueil.dart';
 import './accueil/slide_fonc1.dart';
+import 'accueil/slide_fonc1.dart';
 import 'authrecup/CustomLoginForm1.dart';
 import 'noyau/Personne.dart';
 import 'noyau/Groupe.dart';
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
 
         backgroundColor: Color(0XFFE0E5EC),
-        body : CustomLoginForm1(),
+        body : Slide_fonc1(),
         //*checkConnex(),
         //* BatteryLevelPage(),
         //*DemoApp(),

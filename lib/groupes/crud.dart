@@ -22,15 +22,15 @@ class bddMethods {
   }
 
   //ajout d'un utilisateur dans la collection users
-  Future<void> addUser(String username, String attribut, userData) async {
+  Future<void> addUser(String email, String attribut, userData) async {
     if (isLoggedIn()) {
-      Firestore.instance.collection('users').document(username)
+      Firestore.instance.collection('users').document(email)
           .collection(attribut).document(attribut)
           .setData(userData)
           .catchError((e) {
         print(e);
       });
-      Firestore.instance.collection('users').document(username)
+      Firestore.instance.collection('users').document(email)
           .setData({
         'distance': 0.0,
         'groupeActif': "",
