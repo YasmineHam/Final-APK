@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "731776390454",
+    "firebase_url": "https://geoloc-c278e.firebaseio.com",
+    "project_id": "geoloc-c278e",
+    "storage_bucket": "geoloc-c278e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:731776390454:android:e916d84153173dd3b84f97",
+        "android_client_info": {
+          "package_name": "com.example.geoloc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "731776390454-951s0e7a9o1t14qe28f9atlum9579r0u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.geoloc",
+            "certificate_hash": "484ccf90ee4a2f47de87a2fe625d27008c727361"
+          }
+        },
+        {
+          "client_id": "731776390454-4svvc8enjij3f6qrmgg3khvkstv3se70.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDn9pgv4xkPSInYnm9D5Gu-QtQBgI3ybDo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "731776390454-4svvc8enjij3f6qrmgg3khvkstv3se70.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
